@@ -36,8 +36,15 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		CCSprite *cocos = [CCSprite spriteWithFile:@"icon.png"];
 		cocos.position = ccp(size.width/2,size.height/2);
-		id move = [CCMoveTo actionWithDuration:1.0f position:ccp(size.width/2,(size.height/2)-100)];
-		[cocos runAction:move];
+		id move_down = [CCMoveTo actionWithDuration:1.0f position:ccp(size.width/2,(size.height/2)-100)];
+		id move_up = [CCMoveTo actionWithDuration:2.0f position:ccp(size.width/2,(size.height/2)+100)];
+		id move_center = [CCMoveTo actionWithDuration:1.0f position:ccp(size.width/2,size.height/2)];
+		id move_left = [CCMoveTo actionWithDuration:1.0f position:ccp((size.width/2)-100,size.height/2)];
+		id move_righ = [CCMoveTo actionWithDuration:2.0f position:ccp((size.width/2)+100,size.height/2)];
+		
+		id sequence = [CCSequence actions:move_down,move_up,move_center,move_left,move_righ,move_center,nil];
+		id repeat = [CCRepeatForever actionWithAction:sequence];
+		[cocos runAction:repeat];
 		[self addChild:cocos];
 	}
 	return self;
