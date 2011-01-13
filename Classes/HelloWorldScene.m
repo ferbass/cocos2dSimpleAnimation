@@ -36,6 +36,8 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		CCSprite *cocos = [CCSprite spriteWithFile:@"icon.png"];
 		cocos.position = ccp(size.width/2,size.height/2);
+		id move = [CCMoveTo actionWithDuration:1.0f position:ccp(size.width/2,(size.height/2)-100)];
+		[cocos runAction:move];
 		[self addChild:cocos];
 	}
 	return self;
