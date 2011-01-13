@@ -33,8 +33,9 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init] )) {
+		CGSize size = [[CCDirector sharedDirector] winSize];
 		CCSprite *cocos = [CCSprite spriteWithFile:@"icon.png"];
-		
+		cocos.position = ccp(size.width/2,size.height/2);
 		[self addChild:cocos];
 	}
 	return self;
