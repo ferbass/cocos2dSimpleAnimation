@@ -33,7 +33,9 @@
 	// always call "super" init
 	// Apple recommends to re-assign "self" with the "super" return value
 	if( (self=[super init] )) {
-
+		CCSprite *cocos = [CCSprite spriteWithFile:@"icon.png"];
+		
+		[self addChild:cocos];
 	}
 	return self;
 }
